@@ -1,6 +1,4 @@
 <template>
-
- 
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -27,4 +25,6 @@ export default {
   color: #2c3e50;
 
 }
+
+
 </style>

@@ -4,8 +4,7 @@ import {
     createWebHistory,
 } from 'vue-router'
 
-import PageOperate from '../views/PageOperate.vue'
-import LoginBox from '../components/LoginBox.vue'
+
 
 const routes = [
 // 路由的默认路径
@@ -15,12 +14,24 @@ const routes = [
     },
     {
         path: '/pageoperate',
-        component: PageOperate
+        component: ()=>import("../views/PageOperate.vue"),
+        redirect:'/pageoperate/allstock',
+        children:[
+            {
+                path:'allstock',
+                component:()=>import("../components/AllStock.vue")
+            },
+            {
+                path:'stockindex',
+                component:()=>import("../views/StockIndex.vue")
+            }
+
+        ]
     },
     {
         path: '/login',
-        component: LoginBox
-    },
+        component: ()=>import("../views/PageLogin.vue")
+    }
 ]
 
 const routerHistory = createWebHistory()

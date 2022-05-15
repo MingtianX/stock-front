@@ -1,31 +1,17 @@
 <template>
-  <div class="common-layout">
-    <el-container>
-      <!-- <sub-header></sub-header> -->
-      <el-header>
-      <main-header></main-header>
-      
-    </el-header>
-      <!-- <el-main style="height:700px"><all-stock></all-stock></el-main> -->
-      <el-main style="height:700px"><all-stock></all-stock></el-main>
-     
+<div class="logintitle">股票管理系统</div>
+<login-box></login-box>
  
-           
-    </el-container>
-  </div>
 </template>
 
 
 <script>
 /* eslint-disable */ 
-import MainHeader from "../components/MainHeader.vue"
-import AllStock from "../components/AllStock.vue"
-import StockIndex from "../components/StockIndex.vue"
+import LoginBox from "../components/LoginBox.vue"
 export default{
   components:{
-    'main-header':MainHeader,
-    'all-stock':AllStock,
-    'stock-index':StockIndex
+    'login-box': LoginBox,
+
     
 
   }
@@ -34,5 +20,11 @@ export default{
 </script>
 
 <style>
+.logintitle {
+  font-size: 30px;
+  margin-top:150px;
+  
+
+}
 
 </style>

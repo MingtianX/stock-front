@@ -1,7 +1,7 @@
 <template>
  
     <!--flex弹性盒子模型，justify-content：主抽 -->
-    <div style="display: flex;justify-content: center;margin-top: 150px">
+    <div style="display: flex;justify-content: center;margin-top: 40px">
       <el-card style="width: 400px;height:300px" align="middle">
        <!-- slot="header" -->
         <div  class="clearfix" >

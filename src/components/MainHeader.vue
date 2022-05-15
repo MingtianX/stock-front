@@ -1,51 +1,40 @@
 <template>
-<el-row style="border:0;padding:0">
-<el-col :span="20">
-  <el-menu
+  
+<span class="username" style='float:right;margin-top:18px;margin-right:10px;'>
+      欢迎登录, 管理员A
+</span>
+
+<el-menu 
     :default-active="activeIndex"
     class="el-menu-demo"
     mode="horizontal"
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b"
     @select="handleSelect"
-    >
+  >
 
-    <div class="head-title">股票管理系统</div>
+  <div class="head-title">
+    股票管理系统
+  </div>
 
-    <el-menu-item index="1">股票信息</el-menu-item>
-    <el-menu-item index="2">股票指数</el-menu-item>
-    
-  </el-menu>
-</el-col>
+  <router-link to="/pageoperate/allstock">
+    <el-menu-item index="1">
+    <el-icon  color="#0" style="margin-right:3px"><View /></el-icon>股票信息</el-menu-item>
+  </router-link> 
 
+  <router-link to="/pageoperate/stockindex">
+    <el-menu-item index="2"><el-icon  color="#0" style="margin-right:3px"><Histogram /></el-icon>股票指数</el-menu-item>
+  </router-link> 
 
-<el-col :span="4" style="background-color:#545c64" id="tool">
-   <div class="toolbar">
-
-    <!-- <div class="drop"> -->
-    <el-dropdown>
-      <el-icon  color="#ffffff" style="margin-right:10px"
+  <el-sub-menu index="3">
+      <template #title>
+      <el-icon  color="#0" style="margin-right:3px"
         ><setting
       /></el-icon> 
-
-
-      
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item>修改密码</el-dropdown-item>
-          <el-dropdown-item>注销</el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-
-    </el-dropdown>
-
-    <span id="username">管理员A</span>
-    </div>
-</el-col>
-
-
-</el-row>
+      账号管理</template>
+      <el-menu-item index="3-1">修改密码</el-menu-item>
+      <el-menu-item index="3-2">注销</el-menu-item>
+  </el-sub-menu>
+    
+</el-menu>
 </template>
 
 
@@ -68,22 +57,18 @@
 <style>
 .head-title {
     border:0;
-    margin:16px 30px 10px 30px ;
-    color: #ffffff
+    margin:12px 30px 10px 30px ;
+    color: black;
+    font-size:20px;
 }
 
-#username{
-  color:#ffffff;
-  font-size:12px;
+.username{
+  color:black;
+  font-size:4px;
+  margin-left: 10px;
+  margin-right: auto;
+  float:right;
   
-}
-
-.toolbar {
-  display: inline-flex; 
-  justify-content: flex-end;
-  height: 58px;
-  align-items: center;
-
 }
 
 
