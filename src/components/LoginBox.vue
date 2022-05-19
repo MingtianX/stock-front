@@ -1,6 +1,5 @@
 <template>
  
-    <!--flex弹性盒子模型，justify-content：主抽 -->
     <div style="display: flex;justify-content: center;margin-top: 40px">
       <el-card style="width: 400px;height:300px" align="middle">
        <!-- slot="header" -->
@@ -8,7 +7,7 @@
           <span style="font-size:20px;">登录</span>
         </div>
 
-        <table id="logintable" >
+        <table class="logintable" >
 
           <tr>
             <td>用户名</td>
@@ -32,27 +31,25 @@
         <router-link to="/pageoperate">
               <el-button style="width: 200px; margin-top: 30px;" type="primary" @click="doLogin">
                登录</el-button></router-link>
+               
       </el-card>
     </div>
 
 </template>
 <script>
   export default {
-
     data() {
-      //相当于以前的function data(){},这是es5之前的写法，新版本可以省略掉function
       return{
-        
         user:{
-          username:'zhangsan',
-          password:'123',
-         
+          username:'',
+          password:'',      
         }
       }
     },
     methods:{
-      doLogin(){//一点击登录按钮，这个方法就会执行
-        // alert(JSON.stringify(this.user))//可以直接把this.user对象传给后端进行校验用户名和密码
+      doLogin(){
+        
+       
       }
     }
   }
@@ -63,12 +60,10 @@
   text-decoration:none;
 }
 
-#logintable {
+.logintable {
   height:150px;
   margin-top: 20px;
   text-align:center;
-
-  
 }
 
 
