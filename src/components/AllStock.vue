@@ -29,8 +29,11 @@
         </template>
 
         <template #default="scope">
+        
+        <router-link to="/detail">
           <el-button size="small" style="width:30%"  
             >查看详细信息</el-button>
+            </router-link>
 
           <el-button size="small" type="primary" style="width:30%" @click="handleSet(scope.row)"
             >

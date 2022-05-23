@@ -8,6 +8,8 @@ import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import { Vue } from '@vueuse/core/node_modules/vue-demi'
 import router from '../router'
+import Axios from 'axios'
+
 // app.use(VueRouter)
 
 const app = createApp(App)

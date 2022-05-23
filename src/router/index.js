@@ -12,6 +12,34 @@ const routes = [
         path:'/',
         redirect:"/login"
     },
+
+    {
+        path: '/test',
+        component:()=>import("../views/PageTest.vue")
+    },
+
+
+    {
+        path: '/changemm',
+        component:()=>import("../views/PageChangeMM.vue")
+    },
+
+    {
+        path: '/detail',
+        component:  ()=>import("../views/PageDetail.vue")
+    },
+
+    {
+        path: '/buy',
+        component:  ()=>import("../views/PageBuy.vue")
+    },
+
+    {
+        path: '/sell',
+        component:  ()=>import("../views/PageSell.vue")
+    },
+
+
     {
         path: '/pageoperate',
         component: ()=>import("../views/PageOperate.vue"),

@@ -30,7 +30,10 @@
         ><setting
       /></el-icon> 
       账号管理</template>
+
+      <router-link to="/changemm">
       <el-menu-item index="3-1">修改密码</el-menu-item>
+      </router-link>
       <el-menu-item index="3-2">注销</el-menu-item>
   </el-sub-menu>
     
