@@ -125,30 +125,59 @@ var validatePass = (rule, value, callback) => {
         },
       }
     },
-    methods: {
-
-submitForm(ruleForm) 
+    methods: 
 {
-        var obj =
-         {
-            username: this.username,
-            oldpwd: this.ruleForm.pass,
-            newpwd: this.ruleForm.newpass
-            };
-            console.log(obj);
-            postData("接口", obj).then(response => {
-            if (response.status == 200) {
-            this.$message({ message: "保存成功",
-            type: "success"
-            });
-            } else 
-            {
-              this.$message({ message: "修改失败" + response.message,
-              type: "error"
-              });
+
+submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          console.log(valid)
+          if (valid) 
+          {            
+                 this.$axios.post("/update_pwd",null,{
+                      params:{
+                        userid:sessionStorage.getItem('userid'),
+                        oldpwd:this.ruleForm.pass,
+                        newpwd:this.ruleForm.newpass,                            
+                      }
+                  }).then(res=>{
+                      console.log(res)
+                      if(res.data.status == 200){ 
+                                 sessionStorage.clear();        
+                        this.$router.push('/');
+                        alert('修改密码成功');
+                      console.log('修改密码成功');
+                      }
+                      else
+                      {
+                    this.ruleForm.newpass='';
+                    this.$message({
+                        type:"warning",
+                        message:"修改密码失败",
+                    })
+                }
+
+            }).catch(err=>{
+               console.log(err);
+            })
+
+            // console.log(sessionStorage.getItem('userid'));
+            //           console.log(sessionStorage.getItem('token'));
+            //           console.log(sessionStorage.getItem('username'));
+            // sessionStorage.clear();        
+            //             this.$router.push('/');
+            //           console.log('修改密码成功');
+            //           console.log(sessionStorage.getItem('userid'));
+            //           console.log(sessionStorage.getItem('token'));
+            //           console.log(sessionStorage.getItem('username'));
+
+
+          } else {
+            return false;
           }
         });
-},
+      },
+
+
 
 
       resetForm(formName) {

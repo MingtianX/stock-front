@@ -62,10 +62,37 @@ const routes = [
     }
 ]
 
+
+
+
+
 const routerHistory = createWebHistory()
 // 创建路由对象
 const router = createRouter({
     history: routerHistory,
     routes
 })
+
+
+router.beforeEach((to,from,next)=>{
+    if(to.path==='/login'){
+        next();
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('username');
+
+    }else{
+        const token=sessionStorage.getItem('token');
+        if(token){
+            next();
+        }else{
+            next('/login');
+        }
+    }
+
+
+
+})
+
+
+
 export default router;

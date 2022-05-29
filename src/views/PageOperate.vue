@@ -3,14 +3,9 @@
     <el-container>
       <!-- <sub-header></sub-header> -->
       <el-header class="header">
-      <main-header></main-header>
-      
-    </el-header>
-      <!-- <el-main style="height:700px"><all-stock></all-stock></el-main> -->
-      <!-- <el-main style="height:700px"><all-stock></all-stock></el-main> -->
+        <main-header></main-header>
+      </el-header>
       <router-view></router-view>
- 
-           
     </el-container>
   </div>
 </template>

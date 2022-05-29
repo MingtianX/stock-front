@@ -1,7 +1,7 @@
 <template>
   
-<span class="username" style='float:right;margin-top:18px;margin-right:10px;'>
-      欢迎登录, 管理员A
+<span class="username" >
+      欢迎登录, {{username}}
 </span>
 
 <el-menu 
@@ -33,8 +33,9 @@
 
       <router-link to="/changemm">
       <el-menu-item index="3-1">修改密码</el-menu-item>
-      </router-link>
-      <el-menu-item index="3-2">注销</el-menu-item>
+      </router-link> 
+
+      <el-menu-item index="3-2" @click="logout">注销</el-menu-item>
   </el-sub-menu>
     
 </el-menu>
@@ -46,13 +47,35 @@
     data() {
       return {
         activeIndex:'1',
-        activeIndex2: '2'
+        activeIndex2: '2',
+        username:sessionStorage.getItem('username')
       };
     },
     methods: {
+      logout() {
+        this.$confirm("确认注销？", "提示", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning",
+        }).then(() =>{
+          const token=sessionStorage.getItem('token');
+          const username=sessionStorage.getItem('username');
+          console.log('quit');
+          console.log(token);
+          console.log(username);
+          sessionStorage.removeItem('token');
+          sessionStorage.removeItem('username');
+          sessionStorage.removeItem('userid');
+          this.$router.push(`/login`);
+       })
+      }
+      
+      },
+
       
     }
-  }
+    
+  
 </script>
 
 <style>
@@ -67,8 +90,11 @@
   color:black;
   font-size:4px;
   margin-left: 10px;
-  margin-right: auto;
   float:right;
+  margin-top:18px;
+  margin-right:20px;
+  border:0;
+  padding:0;
   
 }
 
